@@ -16,9 +16,9 @@
     service: name=docker state=started
   - name: Clone a git repo
     git:
-     repo={{repo_name}}
+     repo=https://github.com/savithri87/DevOps-CapStone.git
      dest=/tmp/myrepo
   - name: Build dockerfile into an Image
-    command: chdir=/tmp/myrepo docker build -t {{image_name}} .
+    command: chdir=/tmp/myrepo docker build -t myimage .
   - name: Run the image to deploy container
-    command: docker run -d -P {{image_name}}
+    command: docker run -d -P myimage
